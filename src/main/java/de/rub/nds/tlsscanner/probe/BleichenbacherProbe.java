@@ -55,7 +55,7 @@ public class BleichenbacherProbe extends TlsProbe {
         }
         LOGGER.info("Fetched the following server public key: " + publicKey);
         List<Pkcs1Vector> pkcs1Vectors;
-        if (scannerConfig.getScanDetail() == ScannerDetail.NORMAL) {
+        if (scannerConfig.getScanDetail() == ScannerDetail.NORMAL || scannerConfig.getScanDetail() == ScannerDetail.QUICK) {
             pkcs1Vectors = Pkcs1VectorGenerator.generatePkcs1Vectors(publicKey, BleichenbacherCommandConfig.Type.FAST,
                     bleichenbacherConfig.createConfig().getDefaultHighestClientProtocolVersion());
         } else {
